@@ -1,0 +1,15 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Transaction } from '../transaction';
+
+@Component({
+  selector: 'app-transaction-detail',
+  templateUrl: './transaction-detail.component.html',
+  styleUrls: ['./transaction-detail.component.less']
+})
+export class TransactionDetailComponent implements OnInit {
+  @Input() transaction: Transaction;
+
+  constructor() {}
+
+  ngOnInit() {}
+}

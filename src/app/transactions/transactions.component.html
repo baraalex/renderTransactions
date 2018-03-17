@@ -1,0 +1,43 @@
+<div class="transactions">
+  <button type="button" class="toggle" (click)="showFilters=!showFilters">filters</button>
+  <div class="filters-container" *ngIf="showFilters">
+    <div class="filters">
+      <div class="form-group">
+        <label for="action">pay method</label>
+        <select name="action" id="action" [(ngModel)]="action">
+          <option value="" selected>none</option>
+          <option value="payment">payment</option>
+          <option value="credit">credit</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="currencyCode">currency</label>
+        <select name="currencyCode" id="currencyCode" [(ngModel)]="currencyCode">
+          <option value="" selected>none</option>
+          <option value="EUR">euro {{'EUR' | appCurrency}}</option>
+          <option value="JPY">yen {{'JPY' | appCurrency}}</option>
+          <option value="USD">dollar {{'USD' | appCurrency}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="orderBy">order</label>
+        <select name="orderBy" id="orderBy" [(ngModel)]="orderBy">
+          <option value="" selected>none</option>
+          <option value="date">asc</option>
+          <option value="-date">desc</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" class="search" (click)="search()">search</button>
+      </div>
+    </div>
+  </div>
+  <div class="transactions-container max-heigth">
+    <div class="transaction-item" *ngFor="let transaction of transactions">
+      <app-transaction-detail [transaction]="transaction"></app-transaction-detail>
+    </div>
+  </div>
+  <div *ngIf="!transactions || transactions.length===0">There is no transactions</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="transaction-detail">
+  <div class="transaction-detail-info">
+    <dl>
+      <dt>id</dt>
+      <dd>{{transaction.id}}</dd>
+      <dt>trackingCode</dt>
+      <dd>{{transaction.trackingCode}}</dd>
+      <dt>brand id</dt>
+      <dd>{{transaction.brandId}}</dd>
+      <dt>Pay Method</dt>
+      <dd>{{transaction.action}}</dd>
+      <dt>ammount</dt>
+      <dd>{{transaction.amount | currency:transaction.currencyCode}}</dd>
+    </dl>
+  </div>
+  <div class="transaction-detail-card">
+      <app-card-detail [card]="transaction.card"></app-card-detail>
+  </div>
+</div>

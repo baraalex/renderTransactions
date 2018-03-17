@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-chip"></div>
+    <div class="card-number">
+        {{card.firstSixDigits + '******' + card.lastFourDigits | cardnumber}}
+    </div>
+    <div class="card-date">
+        <p>expires</p>
+        {{card.expiryMonth}} / {{card.expiryYear}}
+    </div>
+    <div class="card-owner ellipsis">
+        {{card.holderName}}
+    </div>
+</div>
