@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
+import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Headers } from '@angular/http';
-
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Transaction } from './transaction';
-
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Transaction } from './transaction';
 
 @Injectable()
 export class TransactionsService {
@@ -37,7 +34,7 @@ export class TransactionsService {
     return this.http
       .get<Transaction[]>(urlWithParams, httpOptions)
       .pipe(tap(_ => console.log(`found transactions`)), catchError(this.handleError<any>('getTransactions')));
-  }
+  };
 
   /**
    * Handle Http operation that failed.

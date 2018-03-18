@@ -8,6 +8,13 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 describe('CardDetailComponent', () => {
   let component: CardDetailComponent;
   let fixture: ComponentFixture<CardDetailComponent>;
+  const card = {
+    expiryMonth: '02',
+    expiryYear: '2022',
+    firstSixDigits: '123456',
+    lastFourDigits: '7890',
+    holderName: 'test name'
+  };
 
   beforeEach(
     async(() => {
@@ -21,18 +28,16 @@ describe('CardDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CardDetailComponent);
     component = fixture.componentInstance;
-    const card = {
-      expiryMonth: '02',
-      expiryYear: '2022',
-      firstSixDigits: '123456',
-      lastFourDigits: '7890',
-      holderName: 'test name'
-    };
+
     component.card = card;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('card on component should be the card', () => {
+    expect(component.card).toEqual(card);
   });
 });
